@@ -44,8 +44,12 @@ const NPSInput = React.createClass({
      * User clicked to dismiss this form.
      */
     onDismiss() {
+        const { score } = this.state;
+
         this.setState({
             dismissed: true
+        }, () => {
+            onDismissed({ score });
         });
     },
 
