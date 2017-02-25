@@ -7,7 +7,7 @@
     "lint": "eslint .",
     "prepublish": "rm -rf ./lib; babel --out-dir ./lib ./src",
     "test": "npm run lint",
-    "postpublish": "npm run build-example-assets; npm run deploy-example",
+    "postpublish": "npm run deploy-example",
     "build-example-js": "browserify ./example/main.js -o ./example/bundle.js -t [ babelify --presets [ es2015 react ] ]",
     "build-example-css": "lessc ./example/main.less > ./example/main.css",
     "build-example": "npm run build-example-js; npm run build-example-css",
