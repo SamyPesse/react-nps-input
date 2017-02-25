@@ -16,7 +16,8 @@ const NPSInput = React.createClass({
     getDefaultProps() {
         return {
             onSubmit:    () => {},
-            onDismissed: () => {}
+            onDismissed: () => {},
+            children:    () => 'Thank you for your feedback!'
         };
     },
 
@@ -64,7 +65,7 @@ const NPSInput = React.createClass({
                 <button className="NPSInput-Close" onClick={this.onDismiss}>✕</button>
 
                 <div className="NPSInput-Inner">
-                    <p>
+                    <p className="NPSInput-Message">
                         {message}
                     </p>
                     <NPSScale

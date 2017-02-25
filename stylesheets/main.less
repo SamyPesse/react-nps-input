@@ -1,6 +1,8 @@
 @NPSInput-Value-color:       rgb(254, 181, 203);
 @NPSInput-Value-hover-color: rgb(255, 73, 129);
 @NPSInput-Value-size:        32px;
+@NPSInput-Value-padding:     3px;
+@NPSInput-Value-width:       ((@NPSInput-Value-size + 2*@NPSInput-Value-padding)*11);
 
 .NPSInput {
     position: fixed;
@@ -39,6 +41,9 @@
     }
 
     .NPSScale {
+        width: @NPSInput-Value-width;
+        margin: 0px auto;
+
         .NPSScale-Values {
             .NPSScale-Value {
                 padding: 0px 3px;
@@ -63,6 +68,7 @@
 
         .NPSScale-Legend {
             display: flex;
+            margin-top: 12px;
 
             .NPSScale-Label {
                 flex: 1;
@@ -75,5 +81,10 @@
                 }
             }
         }
+    }
+
+    .NPSInput-Message {
+        margin: 0px;
+        margin-bottom: 15px;
     }
 }
