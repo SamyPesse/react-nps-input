@@ -50,6 +50,7 @@ const NPSScale = React.createClass({
                 <div className="NPSScale-Values">
                     {range(MIN, MAX).map(i => (
                         <div
+                            key={i}
                             className={classNames('NPSScale-Value', {
                                 selected: value !== null && (value >= i)
                             })}
