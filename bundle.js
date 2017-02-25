@@ -20610,6 +20610,7 @@ var NPSInput = React.createClass({
      * User clicked to dismiss this form.
      */
     onDismiss: function onDismiss() {
+        var onDismissed = this.props.onDismissed;
         var score = this.state.score;
 
 
@@ -20723,6 +20724,7 @@ var NPSScale = React.createClass({
                     return React.createElement(
                         'div',
                         {
+                            key: i,
                             className: classNames('NPSScale-Value', {
                                 selected: value !== null && value >= i
                             }),
