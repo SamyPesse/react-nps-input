@@ -1,0 +1,78 @@
+.NPSInput {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border-top: 1px solid #e5e5e5;
+  background: #fff;
+}
+.NPSInput .NPSInput-Close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  outline: none;
+  display: inline-block;
+  zoom: 1;
+  line-height: normal;
+  white-space: nowrap;
+  vertical-align: baseline;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  font-family: inherit;
+  font-size: 100%;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border: 0;
+  opacity: 0.4;
+}
+.NPSInput .NPSInput-Close:hover {
+  opacity: 1;
+}
+.NPSInput .NPSInput-Inner {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  text-align: center;
+}
+.NPSInput .NPSScale {
+  width: 418px;
+  margin: 0px auto;
+}
+.NPSInput .NPSScale .NPSScale-Values .NPSScale-Value {
+  padding: 0px 3px;
+  display: inline-block;
+}
+.NPSInput .NPSScale .NPSScale-Values .NPSScale-Value div {
+  background: #f2f5fd;
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  cursor: pointer;
+  transition: 0.15s ease background;
+}
+.NPSInput .NPSScale .NPSScale-Values .NPSScale-Value.selected div {
+  background: #3884ff;
+}
+.NPSInput .NPSScale .NPSScale-Legend {
+  display: flex;
+  margin-top: 12px;
+}
+.NPSInput .NPSScale .NPSScale-Legend .NPSScale-Label {
+  flex: 1;
+}
+.NPSInput .NPSScale .NPSScale-Legend .NPSScale-Label.left {
+  text-align: left;
+}
+.NPSInput .NPSScale .NPSScale-Legend .NPSScale-Label.right {
+  text-align: right;
+}
+.NPSInput .NPSInput-Message {
+  margin: 0px;
+  margin-bottom: 15px;
+}
+body {
+  font-size: 14px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
