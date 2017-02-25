@@ -1,6 +1,7 @@
 # react-nps-input
 
-[![Build Status](https://travis-ci.org/GitbookIO/react-nps-input.svg?branch=master)](https://travis-ci.org/GitbookIO/react-nps-input)
+[![Build Status](https://travis-ci.org/SamyPesse/react-nps-input.svg?branch=master)](https://travis-ci.org/SamyPesse/react-nps-input)
+[![NPM version](https://badge.fury.io/js/react-nps-input.svg)](http://badge.fury.io/js/react-nps-input)
 
 A lightweight React component for gathering Net Promoter Score surveys. [See demo](http://samypesse.github.io/react-nps-input/).
 
