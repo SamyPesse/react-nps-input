@@ -5,6 +5,11 @@
   right: 0px;
   border-top: 1px solid #e5e5e5;
   background: #fff;
+  box-shadow: 0px -10px 10px rgba(200, 200, 200, 0.08);
+}
+.NPSInput.animated {
+  animation-duration: 2s;
+  animation-name: NPSInput-slidein;
 }
 .NPSInput .NPSInput-Close {
   position: absolute;
@@ -26,6 +31,7 @@
   text-decoration: none;
   border: 0;
   opacity: 0.4;
+  font-size: 16px;
 }
 .NPSInput .NPSInput-Close:hover {
   opacity: 1;
@@ -48,12 +54,18 @@
   background: #f2f5fd;
   width: 32px;
   height: 32px;
+  line-height: 32px;
   border-radius: 32px;
   cursor: pointer;
-  transition: 0.15s ease background;
+  transition: 0.15s ease all;
+  color: #999;
 }
 .NPSInput .NPSScale .NPSScale-Values .NPSScale-Value.selected div {
   background: #3884ff;
+  color: #fff;
+}
+.NPSInput .NPSScale .NPSScale-Values .NPSScale-Value:hover div {
+  transform: scale(1.25);
 }
 .NPSInput .NPSScale .NPSScale-Legend {
   display: flex;
@@ -61,6 +73,8 @@
 }
 .NPSInput .NPSScale .NPSScale-Legend .NPSScale-Label {
   flex: 1;
+  color: #999;
+  font-size: 12px;
 }
 .NPSInput .NPSScale .NPSScale-Legend .NPSScale-Label.left {
   text-align: left;
@@ -71,6 +85,15 @@
 .NPSInput .NPSInput-Message {
   margin: 0px;
   margin-bottom: 15px;
+  font-size: 16px;
+}
+@keyframes NPSInput-slidein {
+  from {
+    bottom: -100%;
+  }
+  to {
+    bottom: 0px;
+  }
 }
 body {
   font-size: 14px;
