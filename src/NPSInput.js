@@ -1,4 +1,5 @@
 const React = require('react');
+const classNames = require('classnames');
 const NPSScale = require('./NPSScale');
 
 /**
@@ -7,6 +8,7 @@ const NPSScale = require('./NPSScale');
  */
 const NPSInput = React.createClass({
     propTypes: {
+        animated:    React.PropTypes.bool,
         service:     React.PropTypes.string,
         onSubmit:    React.PropTypes.func.isRequired,
         onDismissed: React.PropTypes.func.isRequired,
@@ -15,6 +17,7 @@ const NPSInput = React.createClass({
 
     getDefaultProps() {
         return {
+            animated:    true,
             onSubmit:    () => {},
             onDismissed: () => {},
             children:    () => 'Thank you for your feedback!'
@@ -55,7 +58,7 @@ const NPSInput = React.createClass({
     },
 
     render() {
-        const { service, children } = this.props;
+        const { animated, service, children } = this.props;
         const { dismissed, score } = this.state;
 
         const message = service ?
@@ -67,7 +70,7 @@ const NPSInput = React.createClass({
         }
 
         return (
-            <div className="NPSInput">
+            <div className={classNames('NPSInput', { animated })}>
                 <button className="NPSInput-Close" onClick={this.onDismiss}>✕</button>
 
                 {score ? (

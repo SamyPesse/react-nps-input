@@ -10,7 +10,7 @@ const MAX = 10;
  */
 const NPSScale = React.createClass({
     propTypes: {
-        onSubmit:    React.PropTypes.func.isRequired
+        onSubmit: React.PropTypes.func.isRequired
     },
 
     getDefaultProps() {

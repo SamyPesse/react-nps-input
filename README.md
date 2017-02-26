@@ -40,6 +40,7 @@ const MyApp = React.createClass({
 
 ### Props
 
-- `[String] service` (Optional): name of the service for the introduction message
 - `[Function] onSubmit`: function to call when the user clicked on a score
 - `[Function] onDismissed`: function to call when the user clicked to dismiss the form
+- `[String] service` (Optional): name of the service for the introduction message
+- `[Boolean] animated` (Optional): show animation for apparition (default is `true`)
