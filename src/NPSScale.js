@@ -58,7 +58,7 @@ const NPSScale = React.createClass({
                             onMouseLeave={() => this.onMouseLeave(i)}
                             onClick={() => this.onSelect(i)}
                         >
-                            <div />
+                            <div>{i}</div>
                         </div>
                     ))}
                 </div>

@@ -11,6 +11,7 @@
     right: 0px;
     border-top: 1px solid #e5e5e5;
     background: #fff;
+    box-shadow: 0px -10px 10px rgba(200, 200, 200, 0.08);
 
     .NPSInput-Close {
         position: absolute;
@@ -32,6 +33,7 @@
         text-decoration: none;
         border: 0;
         opacity: 0.4;
+        font-size: 16px;
 
         &:hover {
             opacity: 1;
@@ -58,14 +60,23 @@
                     background: @NPSInput-Value-color;
                     width: @NPSInput-Value-size;
                     height: @NPSInput-Value-size;
+                    line-height: @NPSInput-Value-size;
                     border-radius: @NPSInput-Value-size;
                     cursor: pointer;
-                    transition: 0.15s ease background;
+                    transition: 0.15s ease all;
+                    color: #999;
                 }
 
                 &.selected {
                     div {
                         background: @NPSInput-Value-hover-color;
+                        color: #fff;
+                    }
+                }
+
+                &:hover {
+                    div {
+                        transform: scale(1.25);
                     }
                 }
             }
@@ -77,6 +88,8 @@
 
             .NPSScale-Label {
                 flex: 1;
+                color: #999;
+                font-size: 12px;
 
                 &.left {
                     text-align: left;
@@ -91,5 +104,6 @@
     .NPSInput-Message {
         margin: 0px;
         margin-bottom: 15px;
+        font-size: 16px;
     }
 }
