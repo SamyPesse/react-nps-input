@@ -20650,7 +20650,10 @@ var NPSInput = React.createClass({
             score ? React.createElement(
                 'div',
                 { className: 'NPSInput-Inner' },
-                children({ score: score })
+                children({
+                    score: score,
+                    dismiss: this.onDismiss
+                })
             ) : React.createElement(
                 'div',
                 { className: 'NPSInput-Inner' },
