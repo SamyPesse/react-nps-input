@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SamyPesse/react-nps-score.git"
+    "url": "git+https://github.com/SamyPesse/react-nps-input.git"
   },
   "author": "Samy Pesse <samy@gitbook.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/SamyPesse/react-nps-score/issues"
+    "url": "https://github.com/SamyPesse/react-nps-input/issues"
   },
-  "homepage": "https://github.com/SamyPesse/react-nps-score#readme",
+  "homepage": "https://github.com/SamyPesse/react-nps-input#readme",
   "devDependencies": {
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.1",
