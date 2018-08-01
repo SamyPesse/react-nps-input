@@ -20,7 +20,7 @@ const NPSInput = React.createClass({
             animated:    true,
             onSubmit:    () => {},
             onDismissed: () => {},
-            children:    () => 'Thank you for your feedback!'
+            children:    () => 'Tack för ditt svar!'
         };
     },
 
@@ -62,8 +62,8 @@ const NPSInput = React.createClass({
         const { dismissed, score } = this.state;
 
         const message = service ?
-            `How likely are you to recommend ${service} to your friends and colleagues?`
-            : 'How likely are you to recommend us to your friends and colleagues?';
+            `Hur sannolikt är det att du skulle rekommendera ${service} till en vän eller kollega?`
+            : 'Hur sannolikt är det att du skulle rekommendera oss till en vän eller kollega?';
 
         if (dismissed) {
             return null;
