@@ -98,7 +98,7 @@ const NPSInput = React.createClass({
 
         const message = service ?
             `Hur sannolikt är det att du skulle rekommendera ${service} till en vän eller kollega?`
-            : 'Hur sannolikt är det att du skulle rekommendera oss till en vän eller kollega?';
+            : 'Hur sannolikt är det att du skulle rekommendera det här företaget till en vän eller kollega?';
 
         if (dismissed) {
             return null;
