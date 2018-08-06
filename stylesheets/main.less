@@ -1,116 +1,147 @@
-@NPSInput-Value-color:       #f2f5fd;
-@NPSInput-Value-hover-color: #3884ff;
-@NPSInput-Value-size:        32px;
-@NPSInput-Value-padding:     3px;
-@NPSInput-Value-width:       ((@NPSInput-Value-size + 2*@NPSInput-Value-padding)*11);
+@NPSInput-Value-color: #f2f5fd;
+@NPSInput-Value-hover-color: #5AC37D;
+@NPSInput-Value-size: 32px;
+@NPSInput-Value-padding: 3px;
+@NPSInput-Value-width: ((@NPSInput-Value-size + 2*@NPSInput-Value-padding)*11);
 
 .NPSInput {
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
-    border-top: 1px solid #e5e5e5;
-    background: #fff;
-    box-shadow: 0px -10px 10px rgba(200, 200, 200, 0.08);
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  border-top: 1px solid #e5e5e5;
+  background: #fff;
+  box-shadow: 0px -10px 10px rgba(200, 200, 200, 0.08);
 
-    &.animated {
-        animation-duration: 2s;
-        animation-name: NPSInput-slidein;
+  &.animated {
+    animation-duration: 2s;
+    animation-name: NPSInput-slidein;
+  }
+
+  .NPSInput-Close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    outline: none;
+    display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    vertical-align: baseline;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    font-family: inherit;
+    font-size: 100%;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border: 0;
+    opacity: 0.4;
+
+    &:hover {
+      opacity: 1;
     }
+  }
 
-    .NPSInput-Close {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background: transparent;
-        outline: none;
+  .NPSInput-Inner {
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .NPSScale {
+    width: @NPSInput-Value-width;
+    margin: 0px auto;
+
+    .NPSScale-Values {
+      .NPSScale-Value {
+        padding: 0px 3px;
         display: inline-block;
-        zoom: 1;
-        line-height: normal;
-        white-space: nowrap;
-        vertical-align: baseline;
-        text-align: center;
-        cursor: pointer;
-        user-select: none;
-        font-family: inherit;
-        font-size: 100%;
-        padding: 0.5em 1em;
-        text-decoration: none;
-        border: 0;
-        opacity: 0.4;
-        font-size: 16px;
+
+        div {
+          background: @NPSInput-Value-color;
+          width: @NPSInput-Value-size;
+          height: @NPSInput-Value-size;
+          line-height: @NPSInput-Value-size;
+          border-radius: @NPSInput-Value-size;
+          cursor: pointer;
+          transition: 0.15s ease all;
+          color: #999;
+        }
+
+        &.selected {
+          div {
+            background: @NPSInput-Value-hover-color;
+            color: #fff;
+          }
+        }
 
         &:hover {
-            opacity: 1;
+          div {
+            transform: scale(1.25);
+          }
         }
+      }
     }
 
-    .NPSInput-Inner {
-        width: 100%;
-        max-width: 1000px;
-        margin: 20px auto;
-        text-align: center;
-    }
+    .NPSScale-Legend {
+      display: flex;
+      margin-top: 12px;
 
-    .NPSScale {
-        width: @NPSInput-Value-width;
-        margin: 0px auto;
+      .NPSScale-Label {
+        flex: 1;
+        color: #999;
+        font-size: 12px;
 
-        .NPSScale-Values {
-            .NPSScale-Value {
-                padding: 0px 3px;
-                display: inline-block;
-
-                div {
-                    background: @NPSInput-Value-color;
-                    width: @NPSInput-Value-size;
-                    height: @NPSInput-Value-size;
-                    line-height: @NPSInput-Value-size;
-                    border-radius: @NPSInput-Value-size;
-                    cursor: pointer;
-                    transition: 0.15s ease all;
-                    color: #999;
-                }
-
-                &.selected {
-                    div {
-                        background: @NPSInput-Value-hover-color;
-                        color: #fff;
-                    }
-                }
-
-                &:hover {
-                    div {
-                        transform: scale(1.25);
-                    }
-                }
-            }
+        &.left {
+          text-align: left;
         }
-
-        .NPSScale-Legend {
-            display: flex;
-            margin-top: 12px;
-
-            .NPSScale-Label {
-                flex: 1;
-                color: #999;
-                font-size: 12px;
-
-                &.left {
-                    text-align: left;
-                }
-                &.right {
-                    text-align: right;
-                }
-            }
+        &.right {
+          text-align: right;
         }
+      }
+    }
+  }
+
+  .NPSInput-Message {
+    margin: 0px;
+    margin-bottom: 15px;
+    font-size: 100%;
+  }
+
+  .NPSComment-Label {
+    display: block;
+    text-align: center;
+    font-size: 100%;
+  }
+
+  .NPSComment {
+    display: block;
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    margin: 5px auto;
+
+    .NPSComment-Text {
+      min-width: 400px;
+
     }
 
-    .NPSInput-Message {
-        margin: 0px;
-        margin-bottom: 15px;
-        font-size: 16px;
+    .NPSComment-Button {
+      background-color: #5AC37D;
+      border: none;
+      min-height: 30px;
+      line-height: 30px;
+      color: #FFFFFF;
+      margin-top: 15px;
+      margin-bottom: 15px;
     }
+
+
+
+  }
 }
 
 @keyframes NPSInput-slidein {

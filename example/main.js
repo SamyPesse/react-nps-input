@@ -4,14 +4,14 @@ const ReactDOM = require('react-dom');
 const NPSInput = require('../src');
 
 const Example = React.createClass({
-    onSubmit({ score }) {
-        alert('Submitted ' + score);
+    onSubmitAll({ score, comment }) {
+        alert('Submitted ' + score + ' ' + comment);
     },
 
     render() {
         return (
             <div>
-                <NPSInput onSubmit={this.onSubmit}></NPSInput>
+                <NPSInput onSubmitAll={this.onSubmitAll} ></NPSInput>
             </div>
         );
     }
