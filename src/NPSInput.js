@@ -112,7 +112,7 @@ const NPSInput = React.createClass({
                         <div className="NPSInput-Inner">
                             <p className="NPSInput-Message">Tack för ditt svar!</p>
                         </div>
-                    ) : (score ?
+                    ) : ((score !== null) ?
                             (<div>
                                     <div className="NPSInput-Inner">
                                         {children({
