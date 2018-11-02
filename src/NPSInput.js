@@ -9,7 +9,6 @@ const NPSScale = require('./NPSScale');
 const NPSInput = React.createClass({
     propTypes: {
         animated: React.PropTypes.bool,
-        service: React.PropTypes.string,
         onSubmit: React.PropTypes.func.isRequired,
         onSubmitComment: React.PropTypes.func.isRequired,
         onSubmitAll: React.PropTypes.func.isRequired,
@@ -93,12 +92,10 @@ const NPSInput = React.createClass({
     },
 
     render() {
-        const {animated, service, children} = this.props;
+        const {animated, children} = this.props;
         const {dismissed, score, submitted} = this.state;
 
-        const message = service ?
-            `Hur sannolikt är det att du skulle rekommendera ${service} till en vän eller kollega?`
-            : 'Hur sannolikt är det att du skulle rekommendera det här företaget till en vän eller kollega?';
+        const message = 'Hur sannolikt är det att du skulle rekommendera tjänsten Mitt Fortum till en vän eller kollega?';
 
         if (dismissed) {
             return null;
