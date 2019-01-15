@@ -4,7 +4,7 @@
   "description": "React component to prompt the NPS score",
   "main": "lib/index.js",
   "scripts": {
-    "lint": "eslint .",
+    "lint": "eslint",
     "prepublish": "rm -rf ./lib; babel --out-dir ./lib ./src",
     "test": "npm run lint",
     "postpublish": "npm run deploy-example",
@@ -50,6 +50,7 @@
     "live-server": "^1.2.0",
     "mocha": "^5.2.0",
     "prettier": "^1.15.3",
+    "prettier-eslint": "^8.8.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"
   },
