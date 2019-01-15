@@ -38,6 +38,7 @@
     "browserify": "^16.2.3",
     "eslint": "^5.12.0",
     "eslint-config-gitbook": "^5.0.1",
+    "eslint-plugin-flowtype": "^3.2.1",
     "gh-pages": "^2.0.1",
     "http-server": "^0.11.1",
     "less": "^3.9.0",
