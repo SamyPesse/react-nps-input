@@ -14,13 +14,24 @@ class NPSScale extends React.Component {
     onSubmit: PropTypes.func.isRequired
   };
 
-  static defaultProps = {
-    onSubmit: value => {}
-  };
+  getDefaultProps() {
+    return {
+      onSubmit: value => {}
+    };
+  }
+  //   static defaultProps = {
+  //     onSubmit: value => {}
+  //   };
 
-  state = {
-    value: null
-  };
+  getInitialState() {
+    return {
+      value: null
+    };
+  }
+
+  //   state = {
+  //     value: null
+  //   };
 
   onMouseEnter = value => {
     this.setState({
