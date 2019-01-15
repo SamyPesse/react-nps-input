@@ -1,23 +1,20 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
+const React = require("react");
+const ReactDOM = require("react-dom");
 
-const NPSInput = require('../src');
+const NPSInput = require("../src");
 
-const Example = React.createClass({
-    onSubmit({ score }) {
-        alert('Submitted ' + score);
-    },
+class Example extends React.Component {
+  onSubmitAll = ({ score, comment }) => {
+    alert("Submitted " + score + " " + comment);
+  };
 
-    render() {
-        return (
-            <div>
-                <NPSInput onSubmit={this.onSubmit}></NPSInput>
-            </div>
-        );
-    }
-});
+  render() {
+    return (
+      <div>
+        <NPSInput onSubmitAll={this.onSubmitAll} />
+      </div>
+    );
+  }
+}
 
-ReactDOM.render(
-    <Example />,
-    document.getElementById('example')
-);
+ReactDOM.render(<Example />, document.getElementById("example"));

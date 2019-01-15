@@ -1,97 +1,154 @@
-const React = require('react');
-const classNames = require('classnames');
-const NPSScale = require('./NPSScale');
+const PropTypes = require("prop-types");
+const React = require("react");
+const classNames = require("classnames");
+const NPSScale = require("./NPSScale");
 
 /**
  * Promp the current user for its NPM score.
  * @param {ReactClass}
  */
-const NPSInput = React.createClass({
-    propTypes: {
-        animated:    React.PropTypes.bool,
-        service:     React.PropTypes.string,
-        onSubmit:    React.PropTypes.func.isRequired,
-        onDismissed: React.PropTypes.func.isRequired,
-        children:    React.PropTypes.func
-    },
+class NPSInput extends React.Component {
+  static propTypes = {
+    animated: PropTypes.bool,
+    onSubmit: PropTypes.func.isRequired,
+    onSubmitComment: PropTypes.func.isRequired,
+    onSubmitAll: PropTypes.func.isRequired,
+    onDismissed: PropTypes.func.isRequired,
+    children: PropTypes.func
+  };
 
-    getDefaultProps() {
-        return {
-            animated:    true,
-            onSubmit:    () => {},
-            onDismissed: () => {},
-            children:    () => 'Thank you for your feedback!'
-        };
-    },
+  static defaultProps = {
+    animated: true,
+    onSubmit: () => {},
+    onSubmitComment: () => {},
+    onSubmitAll: () => {},
+    onDismissed: () => {},
+    children: () => (
+      <p className="NPSInput-Label">Ange ytterligare kommentarer (valfritt):</p>
+    )
+  };
 
-    getInitialState() {
-        return {
-            dismissed: false,
-            score: null
-        };
-    },
+  state = {
+    dismissed: false,
+    score: null,
+    comment: null,
+    submitted: false
+  };
 
-    /**
-     * User clicked on a value.
-     */
-    onSubmit(score) {
-        const { onSubmit } = this.props;
-        this.setState({
-            score
-        }, () => {
-            onSubmit({ score });
-        });
-    },
+  /**
+   * User clicked on a value.
+   */
+  onSubmit = score => {
+    this.setState({
+      score
+    });
+  };
 
-    /**
-     * User clicked to dismiss this form.
-     */
-    onDismiss() {
-        const { onDismissed } = this.props;
-        const { score } = this.state;
+  /**
+   * User clicked on a value.
+   */
+  onSubmitComment = event => {
+    const { score, comment } = this.state;
+    this.submit(score, comment);
+    event.preventDefault();
+  };
 
-        this.setState({
-            dismissed: true
-        }, () => {
-            onDismissed({ score });
-        });
-    },
+  submit = (score, comment) => {
+    const { onSubmitAll } = this.props;
+    this.setState(
+      {
+        score,
+        comment,
+        submitted: true
+      },
+      () => {
+        onSubmitAll({ score, comment });
+      }
+    );
+  };
 
-    render() {
-        const { animated, service, children } = this.props;
-        const { dismissed, score } = this.state;
+  onChangeComment = event => {
+    this.setState({
+      comment: event.target.value
+    });
+  };
 
-        const message = service ?
-            `How likely are you to recommend ${service} to your friends and colleagues?`
-            : 'How likely are you to recommend us to your friends and colleagues?';
+  /**
+   * User clicked to dismiss this form.
+   */
+  onDismiss = () => {
+    const { onDismissed } = this.props;
+    const { score } = this.state;
 
-        if (dismissed) {
-            return null;
-        }
+    this.setState(
+      {
+        dismissed: true
+      },
+      () => {
+        onDismissed({ score });
+      }
+    );
+  };
 
-        return (
-            <div className={classNames('NPSInput', { animated })}>
-                <button className="NPSInput-Close" onClick={this.onDismiss}>✕</button>
+  render() {
+    const { animated, children } = this.props;
+    const { dismissed, score, submitted } = this.state;
 
-                {score ? (
-                    <div className="NPSInput-Inner">
-                        {children({
-                            score,
-                            dismiss: this.onDismiss
-                        })}
-                    </div>
-                ) : (
-                    <div className="NPSInput-Inner">
-                        <p className="NPSInput-Message">
-                            {message}
-                        </p>
-                        <NPSScale onSubmit={this.onSubmit} />
-                    </div>
-                )}
+    const message =
+      "Hur sannolikt är det att du skulle rekommendera tjänsten Mitt Fortum till en vän eller kollega?";
 
-            </div>
-        );
+    if (dismissed) {
+      return null;
     }
-});
+
+    return (
+      <div className={classNames("NPSInput", { animated })}>
+        <button className="NPSInput-Close" onClick={this.onDismiss}>
+          ✕
+        </button>
+        {submitted ? (
+          <div className="NPSInput-Inner">
+            <p className="NPSInput-Message">Tack för ditt svar!</p>
+          </div>
+        ) : score !== null ? (
+          <div>
+            <div className="NPSInput-Inner">
+              {children({
+                score,
+                dismiss: this.onDismiss
+              })}
+            </div>
+            <label className="NPSComment-Label" />
+            <form>
+              <div className={classNames("NPSComment")}>
+                <input
+                  id="comment"
+                  className="NPSComment-Text"
+                  type="text"
+                  placeholder=""
+                  onChange={this.onChangeComment}
+                />
+              </div>
+              <div className={classNames("NPSComment")}>
+                <button
+                  className="NPSComment-Button"
+                  type="button"
+                  onClick={this.onSubmitComment}
+                >
+                  Skicka
+                </button>
+              </div>
+            </form>
+          </div>
+        ) : (
+          <div className="NPSInput-Inner">
+            <p className="NPSInput-Message">{message}</p>
+            <NPSScale onSubmit={this.onSubmit} />
+          </div>
+        )}
+      </div>
+    );
+  }
+}
 
 module.exports = NPSInput;
