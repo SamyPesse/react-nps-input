@@ -40,6 +40,7 @@
     "less": "^2.7.2",
     "live-server": "^1.2.0",
     "mocha": "^3.2.0",
+    "prop-types": "^15.7.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2"
   },
